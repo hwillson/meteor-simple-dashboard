@@ -1,13 +1,19 @@
 <template name="sidebar">
 	<div class="col-sm-3 col-md-2 sidebar">
 	  <ul class="nav nav-sidebar">
-	    <li class="sb-welcome active">
-				<a href="#">Welcome <span class="sr-only">(current)</span></a>
+	    <li class="sb-welcome {{#if isCurrentPage 'welcome'}}active{{/if}}">
+				<a href="/">Welcome <span class="sr-only">(current)</span></a>
 			</li>
 			{{#if currentUser}}
-				<li><a href="#">Customers</a></li>
-		    <li><a href="#">Reports</a></li>
-		    <li><a href="#">Export</a></li>
+				<li class="{{#if isCurrentPage 'customers'}}active{{/if}}">
+					<a href="/customers">Customers</a>
+				</li>
+		    <li class="{{#if isCurrentPage 'reports'}}active{{/if}}">
+					<a href="/reports">Reports</a>
+				</li>
+		    <li class="{{#if isCurrentPage 'export'}}active{{/if}}">
+					<a href="/export">Export</a>
+				</li>
 			{{/if}}
 	  </ul>
   </div>

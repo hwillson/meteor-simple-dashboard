@@ -15,3 +15,6 @@ ian:accounts-ui-bootstrap-3
 practicalmeteor:sinon
 aslagle:reactive-table
 aldeed:simple-schema
+aldeed:collection2
+dburles:factory
+anti:fake
