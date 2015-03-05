@@ -13,10 +13,10 @@
 			    </button>
 			    <a class="navbar-brand" href="#">Admin Dashboard</a>
 			  </div>
-			  <div id="navbar" class="navbar-collapse collapse">
+				<!-- TODO: padding is temporary to move logout away from velocity overlay -->
+			  <div id="navbar" class="navbar-collapse collapse" style="padding-right: 100px">
 			    <ul class="nav navbar-nav navbar-right">
-			      <li><a href="#">Settings</a></li>
-			      <li><a href="#">Help</a></li>
+						{{> loginButtons}}
 			    </ul>
 			  </div>
 			</div>

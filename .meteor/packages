@@ -5,9 +5,13 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
-insecure
 twbs:bootstrap
 stylus
 iron:router
 pfafman:font-awesome-4
+accounts-password
+mike:mocha
+ian:accounts-ui-bootstrap-3
+practicalmeteor:sinon
+aslagle:reactive-table
+aldeed:simple-schema
