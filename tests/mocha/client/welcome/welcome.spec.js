@@ -1,53 +1,52 @@
 if (!(typeof MochaWeb === 'undefined')) {
   MochaWeb.testOnly(function () {
 
-		describe('welcome', function () {
-			describe('welcome', function () {
+    describe('client', function () {
+  		describe('welcome', function () {
+  			describe('welcome', function () {
 
-				afterEach(function (done) {
-					Meteor.logout(function () {
-						done();
-					});
-				});
+  				afterEach(function (done) {
+            AuthHelper.logout(done);
+  				});
 
-				it(
-					'should show public welcome message if not logged in',
-					function (done) {
-						Meteor.logout(function () {
-							try {
-								Router.go('/');
-								Tracker.flush();
-								chai.expect($('.we-public').length).to.equal(1);
-								done();
-							} catch (err) {
-								done(err);
-							}
-						});
-					}
-				);
+          it(
+  					'should show welcome page when / or welcome route is accessed',
+  					function (done) {
+  						AuthHelper.login(done, function () {
 
-				it(
-					'should show admin welcome message if logged in',
-					function (done) {
-						Meteor.loginWithPassword(
-							AuthHelper.username,
-							AuthHelper.password,
-							function () {
-								try {
-									Router.go('/');
-									Tracker.flush();
-									chai.expect($('.we-admin').length).to.equal(1);
-									done();
-								} catch (err) {
-									done(err);
-								}
-							}
-						);
-					}
-				);
+  							Router.go('/');
+  							Tracker.flush();
+                chai.expect($('.welcome').length).to.equal(1);
 
-			});
-		});
+                Router.go('/welcome');
+  							Tracker.flush();
+                chai.expect($('.welcome').length).to.equal(1);
+
+              });
+  					}
+  				);
+
+  				it(
+  					'should show public welcome message if not logged in',
+  					function (done) {
+              AuthHelper.logout(done, function () {
+                chai.expect($('.welcome-public').length).to.equal(1);
+              });
+  					}
+  				);
+
+  				it(
+  					'should show admin welcome message if logged in',
+  					function (done) {
+              AuthHelper.login(done, function () {
+                chai.expect($('.welcome-admin').length).to.equal(1);
+              });
+  					}
+  				);
+
+  			});
+  		});
+    });
 
   });
 }

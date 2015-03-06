@@ -37,7 +37,7 @@ var customerSchema = new SimpleSchema({
 		label: 'Postal Code',
 		regEx: /^[ABCEGHJKLMNPRSTVXY]{1}\d{1}[A-Z]{1} *\d{1}[A-Z]{1}\d{1}$/
 	},
-	province: {
+	country: {
 		type: String,
 		label: 'Country',
 		max: 50

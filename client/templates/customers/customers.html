@@ -1,4 +1,6 @@
 <template name="customers">
-	<h1>Customers</h1>
-	{{> reactiveTable collection=customers}}
+	<div class="customers">
+		<h1>Customers</h1>
+		{{> reactiveTable id='customers-table' collection=customers fields=fields}}
+	</div>
 </template>

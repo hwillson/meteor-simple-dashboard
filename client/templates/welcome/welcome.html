@@ -1,11 +1,13 @@
 <template name="welcome">
-	{{#if currentUser}}
-		<div class="we-admin">
-			Welcome!
-		</div>
-	{{else}}
-		<div class="we-public">
-			Welcome! Please login above.
-		</div>
-	{{/if}}
+	<div class="welcome">
+		{{#if currentUser}}
+			<div class="welcome-admin">
+				Welcome!
+			</div>
+		{{else}}
+			<div class="welcome-public">
+				Welcome! Please login above.
+			</div>
+		{{/if}}
+	</div>
 </template>
