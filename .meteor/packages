@@ -18,3 +18,4 @@ aldeed:simple-schema
 aldeed:collection2
 dburles:factory
 anti:fake
+underscorestring:underscore.string

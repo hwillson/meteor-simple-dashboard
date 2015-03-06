@@ -40,6 +40,10 @@ if (!(typeof MochaWeb === 'undefined')) {
                 Tracker.flush();
                 chai.expect($('.sb-customers.active').length).to.equal(1);
 
+                Router.go('/customers/1');
+                Tracker.flush();
+                chai.expect($('.sb-customers.active').length).to.equal(1);
+
                 Router.go('/export');
                 Tracker.flush();
                 chai.expect($('.sb-export.active').length).to.equal(1);

@@ -1,4 +1,4 @@
-Template.customers.helpers({
+Template.customerList.helpers({
 
 	customers: function () {
   	return Customers.find().fetch();
@@ -19,5 +19,14 @@ Template.customers.helpers({
 			{ key: 'cellPhone', label: 'Cell Phone' }
 		];
 	}
+
+});
+
+Template.customerList.events({
+
+  'click .reactive-table tr': function (event) {
+    var customer = this;
+    Router.go('/customers/' + customer._id);
+  }
 
 });

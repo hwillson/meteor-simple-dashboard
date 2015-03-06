@@ -5,7 +5,9 @@ Template.sidebar.helpers({
   },
 
   isCurrentPage: function (pageName) {
-	  return Router.current().route.getName() === pageName;
+    var routeName = Router.current().route.getName();
+    var re = new RegExp('^' + pageName + '.*');
+    return (routeName && routeName.match(re));
   }
 
 });

@@ -9,6 +9,15 @@ if (!(typeof MochaWeb === 'undefined')) {
             AuthHelper.logout(done);
   				});
 
+          it(
+            'should be redirected to the public welcome page if not logged in and try to access the customer page',
+            function () {
+              Router.go('/customers');
+              Tracker.flush();
+              chai.expect($('.welcome-public').length).to.equal(1);
+            }
+          );
+
   				it(
   					'should show customers page when customers route is accessed',
   					function (done) {
