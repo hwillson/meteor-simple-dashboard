@@ -13,7 +13,7 @@ Template.customerList.helpers({
 			{ key: 'city', label: 'City' },
 			{ key: 'province', label: 'Province' },
 			{ key: 'postalCode', label: 'Postal Code' },
-			{ key: 'country', label: 'Country' },
+			// { key: 'country', label: 'Country' },
 			{ key: 'homePhone', label: 'Home Phone' },
 			{ key: 'workPhone', label: 'Work Phone' },
 			{ key: 'cellPhone', label: 'Cell Phone' }

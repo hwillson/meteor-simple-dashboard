@@ -17,7 +17,7 @@ Meteor.startup(function () {
 			return Fake.word();
 		},
 		province: function () {
-			return Fake.word();
+			return 'ON';
 		},
 		postalCode: function () {
 			return 'A1A 1A1';

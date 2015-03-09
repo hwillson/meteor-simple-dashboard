@@ -46,15 +46,15 @@ if (!(typeof MochaWeb === 'undefined')) {
     				);
 
             it(
-    					'should initially set loaded customer details to be read-only',
+    					'should initially set loaded customer details form to be locked',
               function () {
-                chai.expect($('input[name="firstName"]').attr('readonly'))
-                  .to.equal('readonly');
+                chai.expect($('input[name="firstName"]').attr('disabled'))
+                  .to.equal('disabled');
     					}
     				);
 
             it(
-              'should show edit button when in read-only mode',
+              'should show edit button when in locked mode',
               function () {
                 chai.expect($('.btn-edit').length).to.equal(1);
                 chai.expect($('.btn-edit').is(':visible')).to.equal(true);
@@ -66,8 +66,8 @@ if (!(typeof MochaWeb === 'undefined')) {
   						function () {
                 $('.btn-edit').click();
                 Tracker.flush();
-                chai.expect($('input[name="firstName"]').attr('readonly'))
-                  .to.not.equal('readonly');
+                chai.expect($('input[name="firstName"]').attr('disabled'))
+                  .to.not.equal('disabled');
   						}
   					);
 
@@ -88,7 +88,7 @@ if (!(typeof MochaWeb === 'undefined')) {
             );
 
   					it(
-  						'should save customer details when save button is clicked, showing new customer details in read-only form',
+  						'should save customer details when save button is clicked, showing new customer details in locked form',
   						function () {
                 var $firstNameEl, name;
                 $firstNameEl = $('input[name="firstName"]');
@@ -103,23 +103,23 @@ if (!(typeof MochaWeb === 'undefined')) {
   					);
 
             it(
-              'should cancel save putting form back in read-only mode when the cancel button is clicked',
+              'should cancel save putting form back in locked mode when the cancel button is clicked',
               function () {
                 var $firstNameEl = $('input[name="firstName"]');
                 $('.btn-edit').click();
                 Tracker.flush();
-                chai.expect($firstNameEl.attr('readonly'))
-                  .to.not.equal('readonly');
+                chai.expect($firstNameEl.attr('disabled'))
+                  .to.not.equal('disabled');
                 $('.btn-cancel').click();
                 setTimeout(function () {
-                  chai.expect($firstNameEl.attr('readonly'))
-                    .to.not.equal('readonly');
+                  chai.expect($firstNameEl.attr('disabled'))
+                    .to.not.equal('disabled');
                 });
               }
             );
 
             it(
-              'should hide save and cancel buttons when in read-only mode',
+              'should hide save and cancel buttons when in locked mode',
               function () {
                 chai.expect($('.btn-cancel').is(':hidden')).to.equal(true);
                 chai.expect($('.btn-save').is(':hidden')).to.equal(true);

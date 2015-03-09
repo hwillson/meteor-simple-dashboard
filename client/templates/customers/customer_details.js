@@ -1,32 +1,32 @@
-var setFormReadOnly = function () {
-	$('.btn-editable').hide();
-	$('.btn-readonly').show();
-	Session.set('isCustomerFormEditable', false);
+var lockForm = function () {
+	$('.btn-unlocked').hide();
+	$('.btn-locked').show();
+	Session.set('isCustomerFormLocked', true);
 };
 
-var setFormEditable = function () {
-	$('.btn-readonly').hide();
-	$('.btn-editable').show();
-	Session.set('isCustomerFormEditable', true);
+var unlockForm = function () {
+	$('.btn-locked').hide();
+	$('.btn-unlocked').show();
+	Session.set('isCustomerFormLocked', false);
 };
 
 AutoForm.hooks({
 	customerForm: {
 		onSuccess: function (formType, result) {
-			setFormReadOnly();
+			lockForm();
 		}
 	}
 });
 
 Template.customerDetails.rendered = function () {
-	setFormReadOnly();
+	lockForm();
 };
 
 Template.customerDetails.helpers({
 
 	formType: function () {
-		var type = 'readonly';
-		if (Session.get('isCustomerFormEditable')) {
+		var type = 'disabled';
+		if (!Session.get('isCustomerFormLocked')) {
 			type = 'update';
 		}
 		return type;
@@ -38,11 +38,11 @@ Template.customerDetails.events({
 
   'click .btn-edit': function (event) {
 
-		setFormEditable();
+		unlockForm();
 
 		$('#customerForm').on('reset', function () {
 	    setTimeout(function () {
-				setFormReadOnly();
+				lockForm();
 			});
 		});
 

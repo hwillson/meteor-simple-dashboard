@@ -1,7 +1,6 @@
 Collections = {};
 Collections.Customers = new Mongo.Collection('customers');
 
-
 Collections.Customers.allow({
   update: function () {
   	return true;
@@ -48,18 +47,37 @@ Schemas.Customer = new SimpleSchema({
 	province: {
 		type: String,
 		label: 'Province',
-		max: 50
+		autoform: {
+      type: 'select',
+      options: function () {
+        return [
+          {label: 'AB', value: 'AB'},
+					{label: 'BC', value: 'BC'},
+					{label: 'MB', value: 'MB'},
+					{label: 'NB', value: 'NB'},
+					{label: 'NL', value: 'NL'},
+					{label: 'NS', value: 'NS'},
+					{label: 'NT', value: 'NT'},
+					{label: 'NU', value: 'NU'},
+					{label: 'ON', value: 'ON'},
+					{label: 'PE', value: 'PE'},
+					{label: 'QC', value: 'QC'},
+					{label: 'SK', value: 'SK'},
+					{label: 'YT', value: 'YT'}
+        ];
+      }
+    }
 	},
 	postalCode: {
 		type: String,
 		label: 'Postal Code',
 		regEx: /^[ABCEGHJKLMNPRSTVXY]{1}\d{1}[A-Z]{1} *\d{1}[A-Z]{1}\d{1}$/
 	},
-	country: {
-		type: String,
-		label: 'Country',
-		max: 50
-	},
+	// country: {
+	// 	type: String,
+	// 	label: 'Country',
+	// 	max: 50
+	// },
 	homePhone: {
 		type: String,
 		label: 'Home Phone',

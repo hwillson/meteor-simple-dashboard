@@ -21,7 +21,7 @@ Router.route('/customers/:_id', {
     return Collections.Customers.findOne({_id: this.params._id});
   },
   action: function () {
-    Session.set('isCustomerFormEditable', false);
+    Session.set('isCustomerFormLocked', true);
     this.render();
   }
 });
