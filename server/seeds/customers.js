@@ -1,6 +1,6 @@
 Meteor.startup(function () {
 
-  Factory.define('customer', Customers, {
+  Factory.define('customer', Collections.Customers, {
 		firstName: function () {
 			return Fake.user().name;
 		},
@@ -22,7 +22,7 @@ Meteor.startup(function () {
 		postalCode: function () {
 			return 'A1A 1A1';
 		},
-		province: function () {
+		country: function () {
 			return Fake.word();
 		},
 		homePhone: function () {
@@ -36,7 +36,7 @@ Meteor.startup(function () {
 		}
   });
 
-  if (Customers.find({}).count() === 0) {
+  if (Collections.Customers.find({}).count() === 0) {
     _(50).times(function (n) {
       Factory.create('customer');
     });

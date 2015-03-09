@@ -1,7 +1,22 @@
 <template name="customerDetails">
 	<div class="customer">
-		TODO - add form
-
-		{{firstName}}
+		<i class="fa fa-angle-left"></i>
+		<a href="/customers">Back to customer list</a>
+		<h1>Customer Details</h1>
+		{{#autoForm id="customerForm" collection=Collections.Customers doc=this
+		    type=formType}}
+  		{{#each afFieldNames}}
+    		{{> afQuickField name=this options="auto"}}
+  		{{/each}}
+			<button type="reset" class="btn btn-link btn-cancel btn-editable">
+				Cancel
+			</button>
+			<button type="submit" class="btn btn-primary btn-save btn-editable">
+				Save
+			</button>
+			<button type="button" class="btn btn-primary btn-edit btn-readonly">
+	      Edit
+	    </button>
+		{{/autoForm}}
 	</div>
 </template>

@@ -1,3 +1,3 @@
 Meteor.publish('customers', function () {
-  return Customers.find({});
+  return Collections.Customers.find({});
 });

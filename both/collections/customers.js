@@ -1,6 +1,24 @@
-Customers = new Mongo.Collection('customers');
+Collections = {};
+Collections.Customers = new Mongo.Collection('customers');
 
-var customerSchema = new SimpleSchema({
+
+Collections.Customers.allow({
+  update: function () {
+  	return true;
+	}
+});
+
+Collections.Customers.deny({
+	insert: function () {
+  	return true;
+	},
+  remove: function () {
+  	return true;
+	}
+});
+
+Schemas = {};
+Schemas.Customer = new SimpleSchema({
 	firstName: {
 		type: String,
 		label: 'First Name',
@@ -62,4 +80,4 @@ var customerSchema = new SimpleSchema({
 	}
 });
 
-Customers.attachSchema(customerSchema);
+Collections.Customers.attachSchema(Schemas.Customer);

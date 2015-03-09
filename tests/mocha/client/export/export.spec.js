@@ -5,29 +5,39 @@ if (!(typeof MochaWeb === 'undefined')) {
   		describe('export', function () {
   			describe('export', function () {
 
-  				afterEach(function (done) {
-            AuthHelper.logout(done);
-  				});
+          describe('public', function () {
 
-          it(
-            'should be redirected to the public welcome page if not logged in and try to access the export page',
-            function () {
-              Router.go('/export');
-              Tracker.flush();
-              chai.expect($('.welcome-public').length).to.equal(1);
-            }
-          );
+            before(function (done) {
+              AuthHelper.logout(done);
+    				});
 
-  				it(
-  					'should show export page when export route is accessed',
-  					function (done) {
-  						AuthHelper.login(done, function () {
+            it(
+              'should be redirected to the public welcome page if not logged in and try to access the export page',
+              function () {
+                Router.go('/export');
+                Tracker.flush();
+                chai.expect($('.welcome-public').length).to.equal(1);
+              }
+            );
+
+          });
+
+          describe('secure', function () {
+
+            before(function (done) {
+              AuthHelper.login(done);
+            });
+
+    				it(
+    					'should show export page when export route is accessed',
+    					function () {
   							Router.go('/export');
   							Tracker.flush();
                 chai.expect($('.export').length).to.equal(1);
-              });
-  					}
-  				);
+    					}
+    				);
+
+          });
 
   			});
   		});

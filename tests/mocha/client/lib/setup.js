@@ -19,7 +19,9 @@ AuthHelper = {
 			function () {
 				try {
 					Tracker.flush();
-					callback();
+					if (callback) {
+						callback();
+					}
 					done();
 				} catch (err) {
 					done(err);

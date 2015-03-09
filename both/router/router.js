@@ -18,9 +18,10 @@ Router.route('/customers', {
 Router.route('/customers/:_id', {
   name: 'customer_details',
   data: function () {
-    return Customers.findOne({_id: this.params._id});
+    return Collections.Customers.findOne({_id: this.params._id});
   },
   action: function () {
+    Session.set('isCustomerFormEditable', false);
     this.render();
   }
 });
