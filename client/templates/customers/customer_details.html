@@ -1,24 +1,35 @@
 <template name="customerDetails">
-	<div class="customer row">
-		<div class="col-md-5">
+	<div class="customer">
+
+		<p>
 			<i class="fa fa-angle-left"></i>
 			<a href="/customers">Back to customer list</a>
-			<h1>Customer Details</h1>
-			{{#autoForm id="customerForm" collection=Collections.Customers doc=this
-			    type=formType}}
-	  		{{#each afFieldNames}}
-	    		{{> afQuickField name=this options="auto"}}
-	  		{{/each}}
-				<button type="reset" class="btn btn-link btn-cancel btn-unlocked">
-					Cancel
-				</button>
-				<button type="submit" class="btn btn-primary btn-save btn-unlocked">
-					Save
-				</button>
-				<button type="button" class="btn btn-primary btn-edit btn-locked">
-		      Edit
-		    </button>
-			{{/autoForm}}
+		</p>
+
+		<div role="tabpanel">
+		  <ul class="nav nav-tabs" role="tablist">
+		    <li role="presentation" class="active">
+					<a href="#customer-details" aria-controls="customer-details"
+					    role="tab" data-toggle="tab">
+						Details
+					</a>
+				</li>
+				<li role="presentation">
+					<a href="#customer-notes" aria-controls="customer-notes"
+					    role="tab" data-toggle="tab">
+						Notes
+					</a>
+				</li>
+		  </ul>
+		  <div class="tab-content">
+		    <div role="tabpanel" class="tab-pane active" id="customer-details">
+					{{> customerAddress}}
+				</div>
+		    <div role="tabpanel" class="tab-pane" id="customer-notes">
+					{{> customerNotes}}
+				</div>
+		  </div>
 		</div>
+
 	</div>
 </template>

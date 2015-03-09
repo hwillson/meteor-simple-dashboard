@@ -18,11 +18,11 @@ AutoForm.hooks({
 	}
 });
 
-Template.customerDetails.rendered = function () {
+Template.customerAddress.rendered = function () {
 	lockForm();
 };
 
-Template.customerDetails.helpers({
+Template.customerAddress.helpers({
 
 	formType: function () {
 		var type = 'disabled';
@@ -34,7 +34,7 @@ Template.customerDetails.helpers({
 
 })
 
-Template.customerDetails.events({
+Template.customerAddress.events({
 
   'click .btn-edit': function (event) {
 
