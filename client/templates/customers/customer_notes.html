@@ -6,12 +6,10 @@
 				<h1>Customer Notes</h1>
 
 			  {{#autoForm id="customer-notes-form" collection=Collections.Notes
-				    doc=this type="insert"}}
+				    doc=this type="method" meteormethod="noteInsert"}}
 			    <fieldset>
 			      <legend>Add a New Note</legend>
 			      {{> afQuickField name='content' rows=4}}
-            {{> afQuickField name='createdBy' value=userEmail}}
-            {{> afQuickField name='createdOn' value=timestamp}}
 			    </fieldset>
 			    <button type="submit" class="btn btn-primary btn-save">Save</button>
 			  {{/autoForm}}
@@ -33,7 +31,7 @@
 					  <tr>
 							<td class="note-content">{{content}}</td>
 							<td class="note-date">{{formattedCreatedOn}}</td>
-							<td class="note-creator">{{createdBy}}</td>
+							<td class="note-creator">{{createdByEmail}}</td>
 						</tr>
 					{{/each}}
 				</tbody>

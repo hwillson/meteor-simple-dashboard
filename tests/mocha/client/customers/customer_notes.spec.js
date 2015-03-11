@@ -58,24 +58,27 @@ if (!(typeof MochaWeb === 'undefined')) {
 							'should only show notes for the current customer',
 							function () {
 
-								var testUserNoteCount =
-									Collections.Notes.find({
-										createdBy: AuthHelper.email
-									}).count();
 
-								Collections.Notes.insert({
-									content: 'A new test note',
-									createdBy: 'abc@123.com',
-									createdOn: new Date()
-								}, function (error) {
-									if (error) {
-										console.log(error);
-									}
-								});
+								throw new Error('TODO');
 
-								Tracker.flush();
-								chai.expect($('.notes-table tbody tr').length)
-									.to.equal(testUserNoteCount)
+								// var testUserNoteCount =
+								// 	Collections.Notes.find({
+								// 		createdBy: AuthHelper.email
+								// 	}).count();
+								//
+								// Collections.Notes.insert({
+								// 	content: 'A new test note',
+								// 	createdBy: 'abc@123.com',
+								// 	createdOn: new Date()
+								// }, function (error) {
+								// 	if (error) {
+								// 		console.log(error);
+								// 	}
+								// });
+								//
+								// Tracker.flush();
+								// chai.expect($('.notes-table tbody tr').length)
+								// 	.to.equal(testUserNoteCount)
 
 							}
 						);
