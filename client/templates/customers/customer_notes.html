@@ -13,7 +13,7 @@
             {{> afQuickField name='createdBy' value=userEmail}}
             {{> afQuickField name='createdOn' value=timestamp}}
 			    </fieldset>
-			    <button type="submit" class="btn btn-primary">Save</button>
+			    <button type="submit" class="btn btn-primary btn-save">Save</button>
 			  {{/autoForm}}
 
 			</div>
@@ -32,8 +32,8 @@
 					{{#each notes}}
 					  <tr>
 							<td class="note-content">{{content}}</td>
-							<td>{{formattedCreatedOn}}</td>
-							<td>{{createdBy}}</td>
+							<td class="note-date">{{formattedCreatedOn}}</td>
+							<td class="note-creator">{{createdBy}}</td>
 						</tr>
 					{{/each}}
 				</tbody>

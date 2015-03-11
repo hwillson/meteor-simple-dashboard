@@ -1,20 +1,11 @@
 AuthHelper = {
 
-	username: 'testuser',
-	password: 'testpassword',
 	email: 'testuser@test.com',
-
-	createUser: function () {
-		Accounts.createUser({
-			username: this.username,
-			email: this.email,
-			password: this.password
-		});
-	},
+	password: 'testpassword',
 
 	login: function (done, callback) {
 		Meteor.loginWithPassword(
-			AuthHelper.username,
+			AuthHelper.email,
 			AuthHelper.password,
 			function () {
 				try {
@@ -46,5 +37,3 @@ AuthHelper = {
 	}
 
 };
-
-AuthHelper.createUser();

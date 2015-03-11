@@ -16,7 +16,7 @@
 				</li>
 				<li role="presentation">
 					<a href="#customer-notes" aria-controls="customer-notes"
-					    role="tab" data-toggle="tab">
+					    role="tab" data-toggle="tab" class="customer-notes-tab">
 						Notes
 					</a>
 				</li>
@@ -25,7 +25,8 @@
 		    <div role="tabpanel" class="tab-pane active" id="customer-details">
 					{{> customerAddress}}
 				</div>
-		    <div role="tabpanel" class="tab-pane" id="customer-notes">
+		    <div role="tabpanel" class="tab-pane customer-notes-tab-pane"
+				    id="customer-notes">
 					{{> customerNotes}}
 				</div>
 		  </div>

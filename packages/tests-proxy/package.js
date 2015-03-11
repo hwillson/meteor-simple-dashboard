@@ -11,8 +11,10 @@ Package.onUse(function (api) {
 	api.add_files("tests/mocha/client/customers/customer_address.spec.js",["client"]);
 	api.add_files("tests/mocha/client/customers/customer_details.spec.js",["client"]);
 	api.add_files("tests/mocha/client/customers/customer_list.spec.js",["client"]);
+	api.add_files("tests/mocha/client/customers/customer_notes.spec.js",["client"]);
 	api.add_files("tests/mocha/client/export/export.spec.js",["client"]);
 	api.add_files("tests/mocha/client/lib/setup.js",["client"]);
 	api.add_files("tests/mocha/client/welcome/welcome.spec.js",["client"]);
+	api.add_files("tests/mocha/server/lib/setup.js",["server"]);
 	api.add_files("tests/mocha/server/sampleServerTest.js",["server"]);
 });
