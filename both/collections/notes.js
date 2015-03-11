@@ -1,17 +1,5 @@
 Collections.Notes = new Mongo.Collection('notes');
 
-Collections.Notes.deny({
-  insert: function () {
-  	return true;
-	},
-	update: function () {
-  	return true;
-	},
-  remove: function () {
-  	return true;
-	}
-});
-
 Schemas = {};
 Schemas.Note = new SimpleSchema({
 	content: {
@@ -23,6 +11,18 @@ Schemas.Note = new SimpleSchema({
       }
     }
 	},
+  customerId: {
+    type: String,
+    optional: false,
+    autoform: {
+      afFieldInput: {
+        type: 'hidden'
+      },
+      afFormGroup: {
+        label: false
+      }
+    }
+  },
 	createdById: {
 		type: String,
     optional: true
@@ -47,7 +47,8 @@ Meteor.methods({
 
     check(Meteor.userId(), String);
     check(doc, {
-      content: String
+      content: String,
+      customerId: String
     });
 
     note = _.extend(doc, {

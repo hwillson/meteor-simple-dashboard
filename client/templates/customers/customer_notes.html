@@ -10,6 +10,7 @@
 			    <fieldset>
 			      <legend>Add a New Note</legend>
 			      {{> afQuickField name='content' rows=4}}
+            {{> afQuickField name='customerId' value=currentCustomerId}}
 			    </fieldset>
 			    <button type="submit" class="btn btn-primary btn-save">Save</button>
 			  {{/autoForm}}

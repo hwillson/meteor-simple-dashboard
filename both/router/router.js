@@ -21,6 +21,7 @@ Router.route('/customers/:_id', {
     return Collections.Customers.findOne({_id: this.params._id});
   },
   action: function () {
+    Session.set('currentCustomerId', this.params._id);
     Session.set('isCustomerFormLocked', true);
     this.render();
   }
