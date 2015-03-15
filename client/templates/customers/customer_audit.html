@@ -1,0 +1,36 @@
+<template name="customerAudit">
+  <div class="customer-audit">
+
+		<h1>Audit Log</h1>
+
+		{{#if auditLogsExist}}
+			<div>
+				<table class="customer-audit-table table table-striped">
+					<thead>
+						<tr>
+							<th>Action</th>
+						  <th>Details</th>
+							<th>Date</th>
+							<th>User</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each auditLogs}}
+						  <tr>
+								<td class="audit-action">{{actionType}}</td>
+								<td class="audit-details">{{snapshot}}</td>
+								<td class="audit-date">{{dateLogged}}</td>
+								<td class="audit-user">{{userEmail userId}}</td>
+							</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+		{{else}}
+			<div class="customer-audit-empty">
+				No customer changes have been made.
+			</div>
+		{{/if}}
+
+	</div>
+</template>

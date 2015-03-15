@@ -1,5 +1,4 @@
-Collections = {};
-Collections.Customers = new Mongo.Collection('customers');
+Collections.Customers = new AuditedCollection('customers');
 
 Collections.Customers.allow({
   update: function () {
@@ -47,24 +46,15 @@ Schemas.Customer = new SimpleSchema({
 	province: {
 		type: String,
 		label: 'Province',
-		autoform: {
-      type: 'select',
-      options: function () {
-        return [
-          {label: 'AB', value: 'AB'},
-					{label: 'BC', value: 'BC'},
-					{label: 'MB', value: 'MB'},
-					{label: 'NB', value: 'NB'},
-					{label: 'NL', value: 'NL'},
-					{label: 'NS', value: 'NS'},
-					{label: 'NT', value: 'NT'},
-					{label: 'NU', value: 'NU'},
-					{label: 'ON', value: 'ON'},
-					{label: 'PE', value: 'PE'},
-					{label: 'QC', value: 'QC'},
-					{label: 'SK', value: 'SK'},
-					{label: 'YT', value: 'YT'}
-        ];
+    allowedValues: [
+      'AB', 'BC', 'MB', 'NB', 'NL', 'NS', 'NT', 'NU', 'ON', 'PE', 'QC',
+      'SK', 'YT'
+    ],
+    autoform: {
+      afFieldInput: {
+        type: 'select',
+        firstOption: '(Select a province)',
+        options: 'allowed'
       }
     }
 	},

@@ -1,6 +1,5 @@
 Collections.Notes = new Mongo.Collection('notes');
 
-Schemas = {};
 Schemas.Note = new SimpleSchema({
 	content: {
 		type: String,

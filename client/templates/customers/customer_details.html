@@ -9,8 +9,8 @@
 		<div role="tabpanel">
 		  <ul class="nav nav-tabs" role="tablist">
 		    <li role="presentation" class="active">
-					<a href="#customer-details" aria-controls="customer-details"
-					    role="tab" data-toggle="tab">
+					<a href="#customer-address" aria-controls="customer-address"
+					    role="tab" data-toggle="tab" class="customer-address-tab">
 						Details
 					</a>
 				</li>
@@ -20,14 +20,24 @@
 						Notes
 					</a>
 				</li>
+				<li role="presentation">
+					<a href="#customer-audit" aria-controls="customer-audit"
+					    role="tab" data-toggle="tab" class="customer-audit-tab">
+						Audit
+					</a>
+				</li>
 		  </ul>
 		  <div class="tab-content">
-		    <div role="tabpanel" class="tab-pane active" id="customer-details">
+		    <div role="tabpanel" class="tab-pane active" id="customer-address">
 					{{> customerAddress}}
 				</div>
 		    <div role="tabpanel" class="tab-pane customer-notes-tab-pane"
 				    id="customer-notes">
 					{{> customerNotes}}
+				</div>
+				<div role="tabpanel" class="tab-pane customer-audit-tab-pane"
+				    id="customer-audit">
+					{{> customerAudit}}
 				</div>
 		  </div>
 		</div>

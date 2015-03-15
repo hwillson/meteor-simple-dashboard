@@ -47,8 +47,8 @@ if (!(typeof MochaWeb === 'undefined')) {
                 Tracker.flush();
                 chai.expect($('.sb-customers.active').length).to.equal(1);
 
-                Router.go('/customers/1');
-                Tracker.flush();
+                var customer = Collections.Customers.findOne();
+                Router.go('/customers/' + customer._id);
                 chai.expect($('.sb-customers.active').length).to.equal(1);
 
                 Router.go('/export');

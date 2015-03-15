@@ -10,9 +10,7 @@ stylus
 iron:router
 pfafman:font-awesome-4
 accounts-password
-mike:mocha
 ian:accounts-ui-bootstrap-3
-practicalmeteor:sinon
 aslagle:reactive-table
 aldeed:simple-schema
 aldeed:collection2
@@ -21,3 +19,4 @@ anti:fake
 underscorestring:underscore.string
 aldeed:autoform
 momentjs:moment
+cwohlman:audited-collections

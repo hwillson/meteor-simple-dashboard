@@ -36,7 +36,7 @@ Template.customerAddress.helpers({
 
 Template.customerAddress.events({
 
-  'click .btn-edit': function (event) {
+  'click .btn-edit-address': function (event) {
 
 		unlockForm();
 

@@ -10,6 +10,9 @@ Router.route('/welcome');
 
 Router.route('/customers', {
   name: 'customer_list',
+  subscriptions: function () {
+    this.subscribe('allCustomers');
+  },
   action: function () {
     this.render();
   }
@@ -24,6 +27,12 @@ Router.route('/customers/:_id', {
     Session.set('currentCustomerId', this.params._id);
     Session.set('isCustomerFormLocked', true);
     this.render();
+  },
+  subscriptions: function () {
+    this.subscribe('singleCustomer', this.params._id).wait();
+    this.subscribe('customerNotes', this.params._id);
+    this.subscribe('auditlogs');
+    this.subscribe('users');
   }
 });
 
