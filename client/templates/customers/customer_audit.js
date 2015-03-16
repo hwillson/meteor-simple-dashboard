@@ -1,15 +1,23 @@
 Template.customerAudit.helpers({
 
 	auditLogsExist: function () {
-		return Collections.AuditLogs.find({
-			documentId: Session.get('currentCustomerId')
-		}).count() > 0;
+		return Collections.AuditLogs.find({}).count() > 0;
 	},
 
 	auditLogs: function () {
-		return Collections.AuditLogs.find({
-			documentId: Session.get('currentCustomerId')
+		return Collections.AuditLogs.find({}, {
+			sort: {
+				dateLogged: -1
+			}
 		});
+	},
+
+	showChanges: function (snapshot) {
+		var changes = '';
+		if (snapshot) {
+			changes = JSON.stringify(_.omit(snapshot, ['_id']));
+		}
+		return changes;
 	},
 
 	userEmail: function (userId) {

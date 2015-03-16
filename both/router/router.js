@@ -31,7 +31,7 @@ Router.route('/customers/:_id', {
   subscriptions: function () {
     this.subscribe('singleCustomer', this.params._id).wait();
     this.subscribe('customerNotes', this.params._id);
-    this.subscribe('auditlogs');
+    this.subscribe('customerAuditLogs', this.params._id);
     this.subscribe('users');
   }
 });

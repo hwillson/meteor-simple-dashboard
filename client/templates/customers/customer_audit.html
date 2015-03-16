@@ -9,7 +9,7 @@
 					<thead>
 						<tr>
 							<th>Action</th>
-						  <th>Details</th>
+						  <th>Changes</th>
 							<th>Date</th>
 							<th>User</th>
 						</tr>
@@ -18,7 +18,7 @@
 						{{#each auditLogs}}
 						  <tr>
 								<td class="audit-action">{{actionType}}</td>
-								<td class="audit-details">{{snapshot}}</td>
+								<td class="audit-details">{{showChanges snapshot}}</td>
 								<td class="audit-date">{{dateLogged}}</td>
 								<td class="audit-user">{{userEmail userId}}</td>
 							</tr>

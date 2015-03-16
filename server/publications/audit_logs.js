@@ -1,3 +1,5 @@
-Meteor.publish('auditlogs', function () {
-  return Collections.AuditLogs.find({});
+Meteor.publish('customerAuditLogs', function (customerId) {
+  return Collections.AuditLogs.find({
+    documentId: customerId
+  });
 });

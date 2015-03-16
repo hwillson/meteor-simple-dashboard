@@ -37,3 +37,5 @@ AuthHelper = {
 	}
 
 };
+
+Meteor.subscribe('allCustomers');

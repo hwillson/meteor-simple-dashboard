@@ -17,10 +17,9 @@ if (!(typeof MochaWeb === 'undefined')) {
                 Router.go('/customers/' + this.customer._id);
                 Tracker.flush();
                 $('.customer-address-tab').click();
-                $('#customerForm').trigger('reset');
-                // if ($('.btn-cancel-address').is(':visible')) {
-                //   $('.btn-cancel-address').click();
-                // }
+                if ($('.btn-cancel-address').is(':visible')) {
+                  $('.btn-cancel-address').click();
+                }
               }, this);
               this.reload();
             });
@@ -33,54 +32,53 @@ if (!(typeof MochaWeb === 'undefined')) {
     					}
     				);
 
-            // it('should load province select list', function () {
-            //   chai.expect($('select[name="province"] option').length > 1)
-            //     .to.equal(true);
-            // });
-            //
-            // it(
-    				// 	'should initially set loaded customer details form to be locked',
-            //   function () {
-            //     chai.expect($('input[name="firstName"]').attr('disabled'))
-            //       .to.equal('disabled');
-    				// 	}
-    				// );
-            //
-            // it(
-            //   'should show edit button when in locked mode',
-            //   function () {
-            //     chai.expect($('.btn-edit-address').length).to.equal(1);
-            //     chai.expect($('.btn-edit-address').is(':visible'))
-            //       .to.equal(true);
-            //   }
-            // );
-            //
-            // it(
-            //   'should hide save and cancel buttons when in locked mode',
-            //   function () {
-            //     chai.expect($('.btn-cancel-address').is(':hidden'))
-            //       .to.equal(true);
-            //     chai.expect($('.btn-save-address').is(':hidden'))
-            //       .to.equal(true);
-            //   }
-            // );
-            //
-  					// it(
-  					// 	'should set details to editable if edit button is clicked',
-  					// 	function () {
-            //     $('.btn-edit-address').click();
-            //     Tracker.flush();
-            //     chai.expect($('input[name="firstName"]').attr('disabled'))
-            //       .to.be.undefined;
-  					// 	}
-  					// );
-            //
-  					// it('should hide edit button if in editable mode', function () {
-            //   $('.btn-edit-address').click();
-            //   Tracker.flush();
-            //   chai.expect($('.btn-edit-address').is(':hidden')).to.equal(true);
-    				// });
-            //
+            it('should load province select list', function () {
+              chai.expect($('select[name="province"] option').length > 1)
+                .to.equal(true);
+            });
+
+            it(
+    					'should initially set loaded customer details form to be locked',
+              function () {
+                chai.expect($('input[name="firstName"]').attr('disabled'))
+                  .to.equal('disabled');
+    					}
+    				);
+
+            it(
+              'should show edit button when in locked mode',
+              function () {
+                chai.expect($('.btn-edit-address').length).to.equal(1);
+                chai.expect($('.btn-edit-address').is(':visible'))
+                  .to.equal(true);
+              }
+            );
+
+            it(
+              'should hide save and cancel buttons when in locked mode',
+              function () {
+                chai.expect($('.btn-cancel-address').is(':hidden'))
+                  .to.equal(true);
+                chai.expect($('.btn-save-address').is(':hidden'))
+                  .to.equal(true);
+              }
+            );
+
+  					it(
+  						'should set details to editable if edit button is clicked',
+  						function () {
+                $('.btn-edit-address').click();
+                Tracker.flush();
+                chai.expect($('input[name="firstName"]').attr('disabled'))
+                  .to.be.undefined;
+  						}
+  					);
+
+  					it('should hide edit button if in editable mode', function () {
+              $('.btn-edit-address').click();
+              Tracker.flush(); chai.expect($('.btn-edit-address').is(':hidden')).to.equal(true);
+    				});
+
             // it(
             //   'should show save and cancel buttons if in editable mode',
             //   function () {
