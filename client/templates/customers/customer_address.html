@@ -4,16 +4,7 @@
 			<h1>Customer Details</h1>
 			{{#autoForm id="customerForm" collection=Collections.Customers doc=this
 			    type=formType}}
-				{{> afQuickField name='firstName'}}
-				{{> afQuickField name='lastName'}}
-				{{> afQuickField name='street1'}}
-				{{> afQuickField name='street2'}}
-				{{> afQuickField name='city'}}
-				{{> afQuickField name='province'}}
-				{{> afQuickField name='postalCode'}}
-				{{> afQuickField name='homePhone'}}
-				{{> afQuickField name='workPhone'}}
-				{{> afQuickField name='cellPhone'}}
+				{{> afQuickFields}}
 				<button type="reset"
 						class="btn btn-link btn-cancel-address btn-unlocked">
 					Cancel

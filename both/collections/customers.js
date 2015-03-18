@@ -1,4 +1,5 @@
-Collections.Customers = new AuditedCollection('customers');
+// Collections.Customers = new AuditedCollection('customers');
+Collections.Customers = new Mongo.Collection('customers');
 
 Collections.Customers.allow({
   update: function () {

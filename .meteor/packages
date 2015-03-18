@@ -12,7 +12,6 @@ pfafman:font-awesome-4
 accounts-password
 ian:accounts-ui-bootstrap-3
 aslagle:reactive-table
-aldeed:simple-schema
 aldeed:collection2
 dburles:factory
 anti:fake
@@ -20,3 +19,4 @@ underscorestring:underscore.string
 aldeed:autoform
 momentjs:moment
 cwohlman:audited-collections
+mike:mocha
