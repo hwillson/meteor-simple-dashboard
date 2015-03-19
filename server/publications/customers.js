@@ -1,7 +1,17 @@
 Meteor.publish('allCustomers', function () {
-  return Collections.Customers.find({});
+  return Dashboard.Collections.Customers.find({}, {
+    fields: {
+      dateCreated: 0,
+      dateModified: 0
+    }
+  });
 });
 
 Meteor.publish('singleCustomer', function (customerId) {
-  return Collections.Customers.find({ _id: customerId });
+  return Dashboard.Collections.Customers.find({ _id: customerId }, {
+    fields: {
+      dateCreated: 0,
+      dateModified: 0
+    }
+  });
 });

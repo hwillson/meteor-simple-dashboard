@@ -1,7 +1,7 @@
 Template.customerNotes.helpers({
 
 	notes: function () {
-  	return Collections.Notes.find({
+  	return Dashboard.Collections.Notes.find({
       customerId: Session.get('currentCustomerId')
     }, {
 			sort: {

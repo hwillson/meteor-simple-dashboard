@@ -1,5 +1,5 @@
 Meteor.publish('customerAuditLogs', function (customerId) {
-  return Collections.AuditLogs.find({
+  return Dashboard.Collections.AuditLogs.find({
     documentId: customerId
   });
 });

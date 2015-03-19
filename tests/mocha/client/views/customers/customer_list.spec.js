@@ -1,18 +1,19 @@
 if (!(typeof MochaWeb === 'undefined')) {
   MochaWeb.testOnly(function () {
 
-    describe('client', function () {
+    describe('views', function () {
   		describe('customers', function () {
   			describe('customer_list', function () {
 
           describe('public', function () {
 
             before(function (done) {
-              AuthHelper.logout(done);
+              Dashboard.AuthHelper.logout(done);
     				});
 
             it(
-              'should be redirected to the public welcome page if not logged in and try to access the customer page',
+              'should be redirected to the public welcome page if not logged '
+                + 'in and try to access the customer page',
               function () {
                 Router.go('/customers');
                 Tracker.flush();
@@ -25,14 +26,15 @@ if (!(typeof MochaWeb === 'undefined')) {
           describe('secure', function () {
 
             before(function (done) {
-              AuthHelper.login(done);
+              Dashboard.AuthHelper.login(done, function () {
+                Router.go('/customers');
+                Tracker.flush();
+              });
             });
 
     				it(
     					'should show customers page when customers route is accessed',
     					function () {
-  							Router.go('/customers');
-  							Tracker.flush();
                 chai.expect($('.customers').length).to.equal(1);
     					}
     				);
@@ -40,8 +42,6 @@ if (!(typeof MochaWeb === 'undefined')) {
             it(
     					'should load and show 10 customer records by default',
               function () {
-  							Router.go('/customers');
-  							Tracker.flush();
                 chai.expect($('#customers-table').length).to.equal(1);
                 chai.expect($('#customers-table tbody tr').length).to.equal(10);
     					}
@@ -49,13 +49,13 @@ if (!(typeof MochaWeb === 'undefined')) {
 
             it(
               'should load customer details page when a customer is clicked',
-              function () {
-                Router.go('/customers');
-                Tracker.flush();
+              function (done) {
                 $('#customers-table tbody tr:first-child').click();
-                Tracker.flush();
-                chai.expect(window.location.href.match('(.*)/customers/(.*)$'))
-                  .to.not.equal(null);
+                Dashboard.TestHelper.waitThenCheck(function () {
+                  chai.expect(
+                    window.location.href.match('(.*)/customers/(.*)$')
+                  ).to.not.equal(null);
+                }, done);
               }
             );
 

@@ -1,6 +1,6 @@
-Collections.Notes = new Mongo.Collection('notes');
+Dashboard.Collections.Notes = new Mongo.Collection('notes');
 
-Schemas.Note = new SimpleSchema({
+Dashboard.Schemas.Note = new SimpleSchema({
 	content: {
 		type: String,
 		label: 'Note',
@@ -36,7 +36,7 @@ Schemas.Note = new SimpleSchema({
 	}
 });
 
-Collections.Notes.attachSchema(Schemas.Note);
+Dashboard.Collections.Notes.attachSchema(Dashboard.Schemas.Note);
 
 Meteor.methods({
 
@@ -56,7 +56,7 @@ Meteor.methods({
       createdOn: new Date()
     });
 
-    noteId = Collections.Notes.insert(note);
+    noteId = Dashboard.Collections.Notes.insert(note);
 
     return {
       _id: noteId

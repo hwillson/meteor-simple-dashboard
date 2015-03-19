@@ -1,12 +1,12 @@
-AuthHelper = {
+Dashboard.AuthHelper = {
 
 	email: 'testuser@test.com',
 	password: 'testpassword',
 
 	login: function (done, callback) {
 		Meteor.loginWithPassword(
-			AuthHelper.email,
-			AuthHelper.password,
+			this.email,
+			this.password,
 			function () {
 				try {
 					Tracker.flush();
@@ -34,6 +34,26 @@ AuthHelper = {
 				done(err);
 			}
 		});
+	}
+
+};
+
+Dashboard.TestHelper = {
+
+	waitThenCheck: function (checkFunction, done, waitTime) {
+		if (checkFunction && done) {
+			if (!waitTime) {
+				waitTime = 100;
+			}
+			Meteor.setTimeout(function () {
+				try {
+					checkFunction();
+					done();
+				} catch (error) {
+					done(error);
+				}
+			}, waitTime);
+		}
 	}
 
 };

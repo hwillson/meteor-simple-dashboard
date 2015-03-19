@@ -1,2 +1,2 @@
-Template.registerHelper('Collections', Collections);
-Template.registerHelper('Schemas', Schemas);
+Template.registerHelper('Collections', Dashboard.Collections);
+Template.registerHelper('Schemas', Dashboard.Schemas);

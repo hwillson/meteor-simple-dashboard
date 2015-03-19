@@ -1,14 +1,14 @@
 if (!(typeof MochaWeb === 'undefined')) {
   MochaWeb.testOnly(function () {
 
-    describe('client', function () {
+    describe('views', function () {
   		describe('common', function () {
   			describe('sidebar', function () {
 
           describe('public', function () {
 
             before(function (done) {
-              AuthHelper.logout(done);
+              Dashboard.AuthHelper.logout(done);
     				});
 
             it('should show welcome link if not logged in', function () {
@@ -24,7 +24,7 @@ if (!(typeof MochaWeb === 'undefined')) {
           describe('secure', function () {
 
             before(function (done) {
-              AuthHelper.login(done);
+              Dashboard.AuthHelper.login(done);
             });
 
             it('should show admin links if logged in', function () {
@@ -47,7 +47,7 @@ if (!(typeof MochaWeb === 'undefined')) {
                 Tracker.flush();
                 chai.expect($('.sb-customers.active').length).to.equal(1);
 
-                var customer = Collections.Customers.findOne();
+                var customer = Dashboard.Collections.Customers.findOne();
                 Router.go('/customers/' + customer._id);
                 chai.expect($('.sb-customers.active').length).to.equal(1);
 

@@ -1,13 +1,12 @@
-// Collections.Customers = new AuditedCollection('customers');
-Collections.Customers = new Mongo.Collection('customers');
+Dashboard.Collections.Customers = new AuditedCollection('customers');
 
-Collections.Customers.allow({
+Dashboard.Collections.Customers.allow({
   update: function () {
   	return true;
 	}
 });
 
-Collections.Customers.deny({
+Dashboard.Collections.Customers.deny({
 	insert: function () {
   	return true;
 	},
@@ -16,8 +15,8 @@ Collections.Customers.deny({
 	}
 });
 
-Schemas = {};
-Schemas.Customer = new SimpleSchema({
+Dashboard.Schemas = {};
+Dashboard.Schemas.Customer = new SimpleSchema({
 	firstName: {
 		type: String,
 		label: 'First Name',
@@ -89,4 +88,4 @@ Schemas.Customer = new SimpleSchema({
 	}
 });
 
-Collections.Customers.attachSchema(Schemas.Customer);
+Dashboard.Collections.Customers.attachSchema(Dashboard.Schemas.Customer);

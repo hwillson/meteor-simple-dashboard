@@ -1,7 +1,7 @@
 Template.customerList.helpers({
 
 	customers: function () {
-  	return Collections.Customers.find().fetch();
+  	return Dashboard.Collections.Customers.find().fetch();
   },
 
 	fields: function () {

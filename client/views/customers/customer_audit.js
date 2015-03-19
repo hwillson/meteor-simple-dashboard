@@ -1,11 +1,11 @@
 Template.customerAudit.helpers({
 
 	auditLogsExist: function () {
-		return Collections.AuditLogs.find({}).count() > 0;
+		return Dashboard.Collections.AuditLogs.find({}).count() > 0;
 	},
 
 	auditLogs: function () {
-		return Collections.AuditLogs.find({}, {
+		return Dashboard.Collections.AuditLogs.find({}, {
 			sort: {
 				dateLogged: -1
 			}

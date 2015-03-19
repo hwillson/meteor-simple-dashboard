@@ -1,6 +1,6 @@
 Meteor.startup(function () {
 
-  Factory.define('customer', Collections.Customers, {
+  Factory.define('customer', Dashboard.Collections.Customers, {
 		firstName: function () {
 			return Fake.user().name;
 		},
@@ -36,7 +36,7 @@ Meteor.startup(function () {
 		}
   });
 
-  if (Collections.Customers.find({}).count() === 0) {
+  if (Dashboard.Collections.Customers.find({}).count() === 0) {
     _(50).times(function (n) {
       Factory.create('customer');
     });
